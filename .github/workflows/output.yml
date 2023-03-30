@@ -1,0 +1,14 @@
+name: test-workflow
+on:
+  pull-request:
+    types: [opened]
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: run-stuff
+        id: testoutput
+        run: echo "hello world"
+      - name: print previous output
+        run: echo "out: ${{ steps.testoutput.outputs.stdout }}"
