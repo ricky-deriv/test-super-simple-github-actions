@@ -10,11 +10,11 @@ jobs:
       - name: run-stuff
         id: testoutput
         run: |
-          echo "hello\nricky\nfrom\npopo" > test.txt
+          printf "hello\nricky\nfrom\npopo" > test.txt
           cat test.txt
           delimiter="$(openssl rand -hex 8)"
           echo "output-name<<${delimiter}" >> "${GITHUB_OUTPUT}"
-          echo "$(cat test.txt)" >> "${GITHUB_OUTPUT}"
+          printf "$(cat test.txt)" >> "${GITHUB_OUTPUT}"
           echo "${delimiter}" >> "${GITHUB_OUTPUT}"
       - name: print previous output
         run: echo "out- ${{ steps.testoutput.outputs.output-name }}"
