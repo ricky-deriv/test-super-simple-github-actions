@@ -1,6 +1,6 @@
 name: test-workflow
 on:
-  pull-request:
+  pull_request:
     types: [opened]
 jobs:
   comment:
@@ -11,4 +11,4 @@ jobs:
         id: testoutput
         run: echo "hello world"
       - name: print previous output
-        run: echo "out: ${{ steps.testoutput.outputs.stdout }}"
+        run: echo "out- ${{ steps.testoutput.outputs.stdout }}"
